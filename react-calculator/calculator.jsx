@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Calculator extends React.Component {
+export default class Calculator extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -13,7 +13,7 @@ class Calculator extends React.Component {
     this.setNum2 = this.setNum2.bind(this);
     this.add = this.add.bind(this);
     this.subtract = this.subtract.bind(this);
-    this.muiltiply = this.muiltiply.bind(this);
+    this.multiply = this.multiply.bind(this);
     this.divide = this.divide.bind(this);
     this.clear = this.clear.bind(this);
   }
@@ -40,7 +40,7 @@ class Calculator extends React.Component {
     this.setState({ total });
   }
 
-  muiltiply(e){
+  multiply(e){
     e.preventDefault();
     const total = this.state.num1 * this.state.num2;
     this.setState({ total });
@@ -63,19 +63,17 @@ class Calculator extends React.Component {
       <div>
         <h1>React Calculator</h1>
 
-        <input onChange={this.setNum1} value={num1}/>
-        <input onChange={this.setNum2} value={num2}/>
-        <button onClick={this.clear}>Clear</button>
+        <input className="num1" onChange={this.setNum1} value={num1}/>
+        <input className="num2" onChange={this.setNum2} value={num2}/>
+        <button className="clear" onClick={this.clear}>Clear</button>
         <br/>
-        <button onClick={this.add}>+</button>
-        <button onClick={this.subtract}>-</button>
-        <button onClick={this.muiltiply}>*</button>
-        <button onClick={this.divide}>/</button>
+        <button className="add" onClick={this.add}>+</button>
+        <button className="subtract" onClick={this.subtract}>-</button>
+        <button className="multiply" onClick={this.multiply}>*</button>
+        <button className="divide" onClick={this.divide}>/</button>
 
-        <h2>{total}</h2>
+        <h2 className="total">{total}</h2>
       </div>
     )
   }
 }
-
-export default Calculator;
